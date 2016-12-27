@@ -1,20 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{8BF2EDE1-F37D-FF74-FE0C-C1E1143F7EBC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>Assets</BaseDirectory>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -24,8 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -33,8 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-	<LangVersion>default</LangVersion>
-</PropertyGroup>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.XML" />
@@ -48,92 +49,96 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\TouchScript\Editor\Behaviors\Visualizer\TouchVisualizerEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Gestures\Base\PinnedTransformGestureBaseEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Gestures\Base\TransformGestureBaseEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Gestures\FlickGestureEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Gestures\GestureEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Gestures\LongPressGestureEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Gestures\PinnedTransformGestureEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Gestures\PressGestureEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Gestures\ReleaseGestureEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Gestures\ScreenTransformGestureEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Gestures\TapGestureEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Gestures\TransformGestureEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\InputSources\InputSourceEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\InputSources\MobileInputEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\InputSources\MouseInputEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\InputSources\StandardInputEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Layers\CameraLayer2DEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Layers\FullscreenLayerEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Layers\UILayerEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\TouchManagerEditor.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Utils\GUIElements.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Utils\PropertyDrawers\NullToggleDrawer.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Utils\PropertyDrawers\TagsDrawer.cs" />
-     <Compile Include="Assets\TouchScript\Editor\Utils\PropertyDrawers\ToggleLeftDrawer.cs" />
-     <Compile Include="Assets\TouchScript\Modules\TUIO\Editor\InputSources\TuioInputEditor.cs" />
-     <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />
-     <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
-     <None Include="Assets\TouchScript\license.txt" />
-     <None Include="Assets\TouchScript\Shaders\DebugMultiplyDepthTest.shader" />
-     <None Include="Assets\TouchScript\Shaders\DebugNoDepthTest.shader" />
-     <None Include="Assets\Example Games\Angry Birds Style\_ReadMe.txt" />
-     <None Include="Assets\Example Games\2D Scrolling Shooter\Fonts\PressStart2P-Regular\OFL.txt" />
-     <None Include="Assets\Example Games\Hat Trick - The Catch Game\_ReadMe.txt" />
-     <None Include="Assets\Example Games\Hat Trick - The Catch Game\Fonts\LuckiestGuy\LICENSE.txt" />
-     <None Include="Assets\TouchScript\Shaders\DebugMultiplyNoDepthTest.shader" />
-     <None Include="Assets\Example Games\2D Scrolling Shooter\_ReadMe.txt" />
-     <None Include="Assets\TouchScript\Examples\_misc\Shaders\UnlitColor.shader" />
-     <None Include="Assets\TouchScript\Examples\_misc\Shaders\BorderDiffuse.shader" />
- <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Networking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Advertisements">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.EditorTestsRunner">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.TreeEditor">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Android.Extensions">
- <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions">
- <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.OSXStandalone.Extensions">
- <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="OSCsharp">
- <HintPath>/Users/nikolay/ws/sensei/Assets/TouchScript/Modules/TUIO/Libraries/OSCsharp.dll</HintPath>
- </Reference>
- <Reference Include="TUIOsharp">
- <HintPath>/Users/nikolay/ws/sensei/Assets/TouchScript/Modules/TUIO/Libraries/TUIOsharp.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\TouchScript\Editor\Behaviors\Visualizer\TouchVisualizerEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Gestures\Base\PinnedTransformGestureBaseEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Gestures\Base\TransformGestureBaseEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Gestures\FlickGestureEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Gestures\GestureEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Gestures\LongPressGestureEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Gestures\PinnedTransformGestureEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Gestures\PressGestureEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Gestures\ReleaseGestureEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Gestures\ScreenTransformGestureEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Gestures\TapGestureEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Gestures\TransformGestureEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\InputSources\InputSourceEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\InputSources\MobileInputEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\InputSources\MouseInputEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\InputSources\StandardInputEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Layers\CameraLayer2DEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Layers\FullscreenLayerEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Layers\UILayerEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\TouchManagerEditor.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Utils\GUIElements.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Utils\PropertyDrawers\NullToggleDrawer.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Utils\PropertyDrawers\TagsDrawer.cs" />
+    <Compile Include="Assets\TouchScript\Editor\Utils\PropertyDrawers\ToggleLeftDrawer.cs" />
+    <Compile Include="Assets\TouchScript\Modules\TUIO\Editor\InputSources\TuioInputEditor.cs" />
+    <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />
+    <None Include="Assets\Example Games\Flappy Bird Style\_ReadMe.txt" />
+    <None Include="Assets\TouchScript\license.txt" />
+    <None Include="Assets\TouchScript\Shaders\DebugMultiplyDepthTest.shader" />
+    <None Include="Assets\TouchScript\Shaders\DebugNoDepthTest.shader" />
+    <None Include="Assets\Example Games\Angry Birds Style\_ReadMe.txt" />
+    <None Include="Assets\Example Games\2D Scrolling Shooter\Fonts\PressStart2P-Regular\OFL.txt" />
+    <None Include="Assets\Example Games\Hat Trick - The Catch Game\_ReadMe.txt" />
+    <None Include="Assets\Example Games\Hat Trick - The Catch Game\Fonts\LuckiestGuy\LICENSE.txt" />
+    <None Include="Assets\TouchScript\Shaders\DebugMultiplyNoDepthTest.shader" />
+    <None Include="Assets\Example Games\2D Scrolling Shooter\_ReadMe.txt" />
+    <None Include="Assets\TouchScript\Examples\_misc\Shaders\UnlitColor.shader" />
+    <None Include="Assets\TouchScript\Examples\_misc\Shaders\BorderDiffuse.shader" />
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.EditorTestsRunner">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="OSCsharp">
+      <HintPath>/Users/nikolay/ws/sensei/Assets/TouchScript/Modules/TUIO/Libraries/OSCsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="TUIOsharp">
+      <HintPath>/Users/nikolay/ws/sensei/Assets/TouchScript/Modules/TUIO/Libraries/TUIOsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.OSXStandalone.Extensions">
+      <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{FC0D25E2-0FA3-96B3-CA83-46A11825C096}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{FC0D25E2-0FA3-96B3-CA83-46A11825C096}</Project>
+      <Name>Assembly-CSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
-      <Project>{A96ACDD4-09A1-4B69-53A7-3AAA453D466F}</Project>      <Name>Assembly-CSharp-Editor-firstpass</Name>    </ProjectReference>
+      <Project>{A96ACDD4-09A1-4B69-53A7-3AAA453D466F}</Project>
+      <Name>Assembly-CSharp-Editor-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -143,4 +148,14 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
