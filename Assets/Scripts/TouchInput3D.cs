@@ -5,14 +5,14 @@ using System.Collections.Generic;
 // SOURCE: https://www.youtube.com/watch?v=SrCUO46jcxk
 public class TouchInput3D : MonoBehaviour {
 	
-	Camera camera;
+//	Camera camera;
 	public LayerMask touchInputMask;
 	private List<GameObject> touchList = new List<GameObject>();
 	private GameObject[] touchesOld;
 	private RaycastHit hit;
 
 	void Start() {
-		camera = GetComponent<Camera>();
+//		camera = GetComponent<Camera>();
 	}
 
 	void Update () {
@@ -23,26 +23,26 @@ public class TouchInput3D : MonoBehaviour {
 			touchList.CopyTo(touchesOld);
 			touchList.Clear();
 
-			Ray ray = camera.ScreenPointToRay (Input.mousePosition);
-			if (Physics.Raycast (ray, out hit, touchInputMask)) {
-				GameObject recipient = hit.transform.gameObject;
-				touchList.Add (recipient);
-
-				if (Input.GetMouseButtonDown(0)) {
-					recipient.SendMessage ("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
-				}
-				if (Input.GetMouseButtonUp(0)) {
-					recipient.SendMessage ("OnTouchUp", hit.point, SendMessageOptions.DontRequireReceiver);
-				}
-				if (Input.GetMouseButton(0)) {
-					recipient.SendMessage ("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
-				}
-			}
-			foreach (GameObject g in touchesOld) {
-				if (!touchList.Contains (g)) {
-					g.SendMessage ("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
-				}
-			}
+//			Ray ray = camera.ScreenPointToRay (Input.mousePosition);
+//			if (Physics.Raycast (ray, out hit, touchInputMask)) {
+//				GameObject recipient = hit.transform.gameObject;
+//				touchList.Add (recipient);
+//
+//				if (Input.GetMouseButtonDown(0)) {
+//					recipient.SendMessage ("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
+//				}
+//				if (Input.GetMouseButtonUp(0)) {
+//					recipient.SendMessage ("OnTouchUp", hit.point, SendMessageOptions.DontRequireReceiver);
+//				}
+//				if (Input.GetMouseButton(0)) {
+//					recipient.SendMessage ("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
+//				}
+//			}
+//			foreach (GameObject g in touchesOld) {
+//				if (!touchList.Contains (g)) {
+//					g.SendMessage ("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
+//				}
+//			}
 		}
 #endif
 		if (Input.touchCount > 0) {
@@ -51,26 +51,26 @@ public class TouchInput3D : MonoBehaviour {
 			touchList.CopyTo(touchesOld);
 			touchList.Clear();
 
-			foreach (Touch touch in Input.touches) {
-				Ray ray = camera.ScreenPointToRay (touch.position);
-				if (Physics.Raycast (ray, out hit, touchInputMask)) {
-					GameObject recipient = hit.transform.gameObject;
-					touchList.Add (recipient);
-
-					if (touch.phase == TouchPhase.Began) {
-						recipient.SendMessage ("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
-					}
-					if (touch.phase == TouchPhase.Ended) {
-						recipient.SendMessage ("OnTouchUp", hit.point, SendMessageOptions.DontRequireReceiver);
-					}
-					if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) {
-						recipient.SendMessage ("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
-					}
-					if (touch.phase == TouchPhase.Began) {
-						recipient.SendMessage ("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
-					}
-				}
-			}
+//			foreach (Touch touch in Input.touches) {
+//				Ray ray = camera.ScreenPointToRay (touch.position);
+//				if (Physics.Raycast (ray, out hit, touchInputMask)) {
+//					GameObject recipient = hit.transform.gameObject;
+//					touchList.Add (recipient);
+//
+//					if (touch.phase == TouchPhase.Began) {
+//						recipient.SendMessage ("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
+//					}
+//					if (touch.phase == TouchPhase.Ended) {
+//						recipient.SendMessage ("OnTouchUp", hit.point, SendMessageOptions.DontRequireReceiver);
+//					}
+//					if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) {
+//						recipient.SendMessage ("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
+//					}
+//					if (touch.phase == TouchPhase.Began) {
+//						recipient.SendMessage ("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
+//					}
+//				}
+//			}
 			foreach (GameObject g in touchesOld) {
 				if (!touchList.Contains (g)) {
 					g.SendMessage ("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);

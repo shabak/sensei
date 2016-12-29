@@ -15,58 +15,35 @@ public class Controller : MonoBehaviour
 	public Vector3 offset; //vector between touchpoint/mouseclick to object center
 	public bool draggingMode;
 	public GameObject[] items;
-//	private int i;
-
-    private static int size = 27;
-    Vector3 center = new Vector3(0, 0, 0);
-    float[] degreesPerSecond = new float[size];
-    Vector3[] v = new Vector3[size];
-    GameObject[] rotated = new GameObject[size];
-    Random rand = new Random();
+	private int i;
 
     private void Start() {
-//		showItem();
-
-        for (var i = 0; i < size; i++)
-        {
-            degreesPerSecond[i] = rand.Next(35, 75);
-            rotated[i] = Instantiate(items[i]);
-            rotated[i].transform.position = new Vector3(0, (i/5)+0.2f, 0);
-            v[i] = rotated[i].transform.position - center;
-        }
+		showItem();
     }
 
     private void Update() {
-
-        for (var i = 0; i < size; i++)
-        {
-            v[i] = Quaternion.AngleAxis(degreesPerSecond[i] * Time.deltaTime, Vector3.forward) * v[i];
-            rotated[i].transform.position = center + v[i];
-        }
-
-//        if (Application.isEditor) {
-//			// first frame when user click left mouse
-//			if (Input.GetMouseButtonDown(0)) {
-//				onDragStarted(new Touch());
-//			}
-//			// every frame user hold on left mouse
-//			if (Input.GetMouseButton(0)) {
-//				 onDragContinued();
-//			}
-//			// when mouse is released
-//			if (Input.GetMouseButtonUp(0)) {
-//				onDragEnded();
-//			}
-//		} else {
-//			foreach (Touch touch in Input.touches) {
-//				switch (touch.phase) {
-//					case TouchPhase.Began: onDragStarted(touch); break;
-//					case TouchPhase.Moved: onDragContinued(); break;
-//					case TouchPhase.Ended: onDragEnded(); break;
-//				}
-//			}
-//		}
-
+        if (Application.isEditor) {
+			// first frame when user click left mouse
+			if (Input.GetMouseButtonDown(0)) {
+				onDragStarted(new Touch());
+			}
+			// every frame user hold on left mouse
+			if (Input.GetMouseButton(0)) {
+				 onDragContinued();
+			}
+			// when mouse is released
+			if (Input.GetMouseButtonUp(0)) {
+				onDragEnded();
+			}
+		} else {
+			foreach (Touch touch in Input.touches) {
+				switch (touch.phase) {
+					case TouchPhase.Began: onDragStarted(touch); break;
+					case TouchPhase.Moved: onDragContinued(); break;
+					case TouchPhase.Ended: onDragEnded(); break;
+				}
+			}
+		}
 	}
 
 	void onDragStarted(Touch touch) {		
@@ -76,7 +53,7 @@ public class Controller : MonoBehaviour
 			dragging = hit2D.collider.gameObject;
 			Debug.Log(dragging);
 			Item item = (Item)dragging.GetComponent(typeof(Item));
-			if (item.draggable) {
+			if (item.active) {
 				offset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - dragging.transform.position;
 				draggingMode = true;
 			}
@@ -87,17 +64,10 @@ public class Controller : MonoBehaviour
 		if (draggingMode) {
 			dragging.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) - offset;
 			Item item = (Item)dragging.GetComponent(typeof(Item));
-			// bar.Value = (100f - item.getDistanceEstimate());
-			// Debug.Log (item.getDistanceEstimate()); 
+			// Debug.Log (item.getDistanceEstimate());
 			if (item.isPositionAchieved()) {
-				// bar.Value = 0;
 				item.disposeOnExactPosition();
 				onDragEnded();
-//				if (i < items.Length) {
-//					showItem();
-//				} else {
-//					//TODO:
-//				}
 			}
 		}
 	}
@@ -107,9 +77,9 @@ public class Controller : MonoBehaviour
 	}
 
 	private void showItem() {
-//		active = items[i++];
-//		float zShift = -i/10.0f;
-//		active.transform.position = new Vector3(0, 0, zShift);
-//		Instantiate(active);
+		active = items[i++];
+		float zShift = -i/10.0f;
+		active.transform.position = new Vector3(0, 0, zShift);
+		Instantiate(active);
 	} 
 }
