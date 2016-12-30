@@ -17,9 +17,11 @@ public class Tropic : MonoBehaviour
     private bool started;
 
     public void Start() {
+        started = false;
         for (var i = 0; i < SIZE; i++) {
             degreesPerSecond[i] = rand.Next(15, 25);
             active[i] = true;
+            degreesАcc[i] = 0.0f;
         }
     }
 
@@ -29,23 +31,23 @@ public class Tropic : MonoBehaviour
             for (var i = 0; i < SIZE; i++) {
                 if (!active[i]) continue;
                 var item = transform.GetChild(i);
-                Item item_ = item.GetComponent<Item>();
+                Item itm = item.GetComponent<Item>();
                 if (360.0f - degreesАcc[i] < 0.5f) {
-                    item.position = new Vector3(item_.x, item_.y, item.position.z);
+                    item.position = new Vector3(itm.x, itm.y, item.position.z);
                     active[i] = false;
                     continue;
                 }
                 var angle = (degreesPerSecond[i] + acceleration) * Time.deltaTime;
+                if (i % 2 == 0) angle *= -1;
                 item.position = Quaternion.AngleAxis(angle, Vector3.forward) * item.position;
-                degreesАcc[i] += angle;
+                degreesАcc[i] += Mathf.Abs(angle);
                 finished = false;
             }
             if (finished) {
-                started = false;
                 Start();
             }
+//            Debug.Log("started:"+started+";finished:"+finished);
         }
-
 
         if (Application.isEditor) {
             if (Input.GetMouseButtonDown(0)) {
@@ -69,8 +71,5 @@ public class Tropic : MonoBehaviour
                 acceleration = (acceleration > 0) ? acceleration - ACCELERATION_FACTOR : 0;
             }
         }
-//        Debug.Log(started);
-
     }
-
 }
